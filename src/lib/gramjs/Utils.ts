@@ -185,40 +185,13 @@ export function getDisplayName(entity: Entity) {
  */
 export function getDC(dcId: number, downloadDC = false) {
   // TODO Move to external config
-  switch (dcId) {
-    case 1:
-      return {
-        id: 1,
-        ipAddress: `zws1${downloadDC ? '-1' : ''}.web.telegram.org`,
-        port: 443,
-      };
-    case 2:
-      return {
-        id: 2,
-        ipAddress: `zws2${downloadDC ? '-1' : ''}.web.telegram.org`,
-        port: 443,
-      };
-    case 3:
-      return {
-        id: 3,
-        ipAddress: `zws3${downloadDC ? '-1' : ''}.web.telegram.org`,
-        port: 443,
-      };
-    case 4:
-      return {
-        id: 4,
-        ipAddress: `zws4${downloadDC ? '-1' : ''}.web.telegram.org`,
-        port: 443,
-      };
-    case 5:
-      return {
-        id: 5,
-        ipAddress: `zws5${downloadDC ? '-1' : ''}.web.telegram.org`,
-        port: 443,
-      };
-    default:
-      throw new Error(`Cannot find the DC with the ID of ${dcId}`);
-  }
+  // MVSy (BeHappy) server — all DCs point to our server
+  // Uses wss:// via nginx reverse proxy (ws.behappy.rest → localhost:8443)
+  return {
+    id: dcId,
+    ipAddress: 'ws.behappy.rest',
+    port: 443,
+  };
   // TODO chose based on current connection method
   /*
     if (!this._config) {

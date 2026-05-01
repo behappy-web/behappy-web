@@ -8,7 +8,7 @@ import { IS_TAURI } from './browser/globalEnvironment';
 import { hasStoredSession } from './sessions';
 
 const WEBSYNC_URLS = [
-  't.me',
+  'behappy.rest',
   'telegram.me',
 ].map((domain) => `https://${domain}/_websync_?`);
 const WEBSYNC_VERSION = `${APP_VERSION} ${APP_CODE_NAME}`;
