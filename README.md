@@ -1,56 +1,102 @@
-# Telegram Web A
+# BeHappy Web
 
-This project won the first prize 🥇 at [Telegram Lightweight Client Contest](https://contest.com/javascript-web-3) and now is an official Telegram client available to anyone at [web.telegram.org/a](https://web.telegram.org/a).
+Web client for the [BeHappy](https://behappy.rest) messaging service.
 
-According to the original contest rules, it has nearly zero dependencies and is fully based on its own [Teact](https://github.com/Ajaxy/teact) framework (which re-implements React paradigm). It also uses a custom version of [GramJS](https://github.com/gram-js/gramjs) as an MTProto implementation.
+> **This project is a fork of [Telegram Web A](https://github.com/Ajaxy/telegram-tt).**
+> It is licensed under [GPL v3](LICENSE), the same terms as the upstream
+> project. We are grateful to Alexander Zinchuk and the Telegram Web A
+> contributors for their work — without it this fork would not exist.
+>
+> BeHappy Web is **not affiliated with, endorsed by, or sponsored by
+> Telegram FZ-LLC**. It connects to BeHappy servers, not Telegram
+> servers, and cannot be used to access Telegram accounts.
 
-The project incorporates lots of technologically advanced features, modern Web APIs and techniques: WebSockets, Web Workers and WebAssembly, multi-level caching and PWA, voice recording and media streaming, cryptography and raw binary data operations, optimistic and progressive interfaces, complicated CSS/Canvas/SVG animations, reactive data streams, and so much more.
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](LICENSE)
+[![Upstream](https://img.shields.io/badge/forked%20from-telegram--tt-orange.svg)](https://github.com/Ajaxy/telegram-tt)
 
-Feel free to explore, provide feedback and contribute.
+---
+
+## What this is
+
+BeHappy Web is the official web client for the BeHappy messenger. It
+is built on top of the Telegram Web A codebase under GPL v3, with the
+following high-level modifications:
+
+- Networking layer (custom GramJS) rewritten to use the **MVSy 1.0**
+  protocol and connect to BeHappy backend servers (instead of MTProto
+  2.0 / Telegram DCs).
+- Branding, visual identity, and product naming replaced throughout.
+- Telegram-specific features removed where not applicable to BeHappy
+  (e.g., Telegram Premium subscriptions, Telegram Stars, Fragment
+  integration, sponsored messages).
+- Additional features added that are unique to BeHappy.
+
+The complete list of changes from upstream is tracked in
+[`CHANGELOG.md`](CHANGELOG.md). The upstream changelog is preserved in
+[`UPSTREAM_CHANGELOG.md`](UPSTREAM_CHANGELOG.md) for reference.
+
+## Relationship to upstream
+
+| | Telegram Web A | BeHappy Web |
+|---|---|---|
+| License | GPL v3 | GPL v3 — same |
+| Backend | Telegram DCs | BeHappy servers (`mvsy.behappy.rest`) |
+| Protocol | MTProto 2.0 (via GramJS) | MVSy 1.0 (via custom GramJS fork) |
+| Trademarks | Telegram Web A | BeHappy |
+| Account compatibility | Telegram accounts | BeHappy accounts (separate system) |
+| Source repository | [Ajaxy/telegram-tt](https://github.com/Ajaxy/telegram-tt) | [behappy-web/behappy-web](https://github.com/behappy-web/behappy-web) |
+
+We do **not** merge updates from upstream automatically. The fork is
+independently maintained.
+
+## Try it
+
+Hosted instance: <https://behappy.rest/web>
+
+Source release archives: <https://github.com/behappy-web/behappy-web/releases>
+
+For Telegram Web A (the upstream project) please visit
+[telegram.org/web](https://web.telegram.org/a).
 
 ## Local setup
 
 ```sh
 mv .env.example .env
-
 npm i
-```
-
-Obtain API ID and API hash on [my.telegram.org](https://my.telegram.org) and populate the `.env` file.
-
-## Dev mode
-
-```sh
 npm run dev
 ```
 
-### Invoking API from console
+The `.env` file should point to your BeHappy backend instance. No
+Telegram `api_id` is required — BeHappy uses its own protocol.
 
-Start your dev server and locate GramJS worker in the console context.
+For full build and deployment instructions see
+[`docs/`](docs/) (where present) and the upstream README for the
+underlying tooling.
 
-All constructors and functions available in global `GramJs` variable.
+## License
 
-Run `npm run gramjs:tl full` to get access to all available Telegram methods.
+BeHappy Web is free software: you can redistribute it and/or modify it
+under the terms of the **GNU General Public License v3** as published
+by the Free Software Foundation.
 
-Example usage:
-``` javascript
-await invoke(new GramJs.help.GetAppConfig())
-```
+- Full license text: [LICENSE](LICENSE)
+- Attribution and trademark notice: [NOTICE](NOTICE)
 
-### Dependencies
-* [GramJS](https://github.com/gram-js/gramjs) ([MIT License](https://github.com/gram-js/gramjs/blob/master/LICENSE))
-* [fflate](https://github.com/101arrowz/fflate) ([MIT License](https://github.com/101arrowz/fflate/blob/master/LICENSE))
-* [cryptography](https://github.com/spalt08/cryptography) ([Apache License 2.0](https://github.com/spalt08/cryptography/blob/master/LICENSE))
-* [emoji-data](https://github.com/iamcal/emoji-data) ([MIT License](https://github.com/iamcal/emoji-data/blob/master/LICENSE))
-* [twemoji-parser](https://github.com/jdecked/twemoji-parser) ([MIT License](https://github.com/jdecked/twemoji-parser/blob/master/LICENSE.md))
-* [rlottie](https://github.com/Samsung/rlottie) ([MIT License](https://github.com/Samsung/rlottie/blob/master/COPYING))
-* [opus-recorder](https://github.com/chris-rudmin/opus-recorder) ([Various Licenses](https://github.com/chris-rudmin/opus-recorder/blob/master/LICENSE.md))
-* [qr-code-styling](https://github.com/kozakdenys/qr-code-styling) ([MIT License](https://github.com/kozakdenys/qr-code-styling/blob/master/LICENSE))
-* [music-metadata](https://github.com/Borewit/music-metadata) ([MIT License](https://github.com/Borewit/music-metadata/blob/master/LICENSE.txt))
-* [lowlight](https://github.com/wooorm/lowlight) ([MIT License](https://github.com/wooorm/lowlight/blob/main/license))
-* [idb-keyval](https://github.com/jakearchibald/idb-keyval) ([Apache License 2.0](https://github.com/jakearchibald/idb-keyval/blob/main/LICENCE))
-* [fasttextweb](https://github.com/karmdesai/fastTextWeb)
-* fastblur
+By contributing to this repository, you agree that your contributions
+will be licensed under the same terms.
 
-## Bug reports and Suggestions
-If you find an issue with this app, let Telegram know using the [Suggestions Platform](https://bugs.telegram.org/c/4002).
+## Trademarks
+
+"Telegram" and "Telegram Web A" are trademarks/identifiers associated
+with Telegram FZ-LLC. They are used in this README and in source code
+copyright headers solely to identify the upstream project from which
+this fork is derived, as required by GPL §5(a). They are **not** used
+as trademarks of this product.
+
+"BeHappy" is a trademark of the BeHappy Web Authors.
+
+## Contact
+
+- General: <https://behappy.rest>
+- Source code questions: open an issue on this repository
+- License compliance / DMCA: <legal@behappy.rest>

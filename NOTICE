@@ -1,0 +1,78 @@
+BeHappy Web
+============
+
+This product is a derivative work of Telegram Web A
+(https://github.com/Ajaxy/telegram-tt) and is licensed under the same
+terms: GNU General Public License v3.
+
+See the LICENSE file for the full license text.
+
+------------------------------------------------------------------------
+Copyright Notices
+------------------------------------------------------------------------
+
+Original Telegram Web A:
+    Copyright (c) 2021-2026 Alexander Zinchuk and contributors
+
+BeHappy Web modifications:
+    Copyright (c) 2026 The BeHappy Web Authors
+
+Both copyrights apply to this software. Modifications made by the
+BeHappy Web Authors are also licensed under GPL v3, as required by the
+upstream license.
+
+------------------------------------------------------------------------
+Source Code Availability (GPL §6 compliance)
+------------------------------------------------------------------------
+
+The complete corresponding source code of this software, including any
+modifications made by the BeHappy Web Authors, is publicly available
+at:
+
+    https://github.com/behappy-web/behappy-web
+
+If you accessed BeHappy Web through a hosted instance and wish to obtain
+the source corresponding to that build, please contact:
+
+    legal@behappy.rest
+
+You are entitled to receive the full source code corresponding to the
+deployed build, at no additional charge.
+
+------------------------------------------------------------------------
+Trademark Notice
+------------------------------------------------------------------------
+
+"Telegram" and "Telegram Web A" are trademarks/identifiers associated
+with Telegram FZ-LLC.
+
+This project:
+  - Is NOT affiliated with, endorsed by, or sponsored by Telegram FZ-LLC.
+  - Does NOT use the Telegram name, logo, or other Telegram trademarks
+    in its branding, user-visible interface, or marketing.
+  - Connects to BeHappy backend servers, NOT to Telegram servers.
+    It cannot be used to access Telegram accounts.
+
+"BeHappy" name, logo, and visual identity are the property of the
+BeHappy Web Authors.
+
+------------------------------------------------------------------------
+Protocol
+------------------------------------------------------------------------
+
+BeHappy Web communicates using the MVSy 1.0 protocol via a customized
+GramJS-derived networking layer pointed at BeHappy backend servers.
+MVSy 1.0 is independently developed and is not interoperable with
+Telegram servers.
+
+The MVSy 1.0 specification is available at:
+
+    https://github.com/behappy-app/bh-mvsy
+
+------------------------------------------------------------------------
+Third-Party Components
+------------------------------------------------------------------------
+
+This project depends on the same third-party components as Telegram
+Web A. The complete list with licenses is in package.json and the
+ATTRIBUTIONS or LICENSES file (if present in the build artifact).
